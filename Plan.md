@@ -4,21 +4,21 @@ the main bulk of the TavernProfile
 
 ### Model
 Make a model that has:
-    - userId
-    - username: this needs to be linked to the authtoken
-    - Role: from common
-    - Characters
-    - Plots
-    - user_bio
+- [ ] user_id
+- [ ] username: this needs to be linked to the authtoken
+- [ ] Characters
+- [ ] Plots
+- [ ] user_bio 
+- [ ] Add other things as well
 
 ### Repository
-Just make the ability:
-    - Make a model
-    - Make update *a* Model
-    - Delete a model
-    - Get a Model
-    - Get All
+- [ ] Make a model
+- [ ] update a model by id 
+- [ ] delete a model 
+- [ ] Get a model by id  
+- [ ] Get all 
 
 ### Controller
-need to be able to do the following:
-    - access the Repository Stuff 
+- [ ] Make an endpoint for all repository stuff. 
+- [ ] Test all endpoints 
+- [ ] Test making a second one   

@@ -3,13 +3,12 @@ name = "TavernProfile"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 actix-web = "4"
 serde = "1.0.152"
-tavern_common = { git = "https://github.com/adamkali/TavernCommon.git" }
 serde_json = "1.0"
+sea-orm = "0.10.6"
+arctic_fox = { git = "https://github.com/adamkali/ArcticFox.git", features = ["arctic_actix"] }
 
 [dependencies.uuid]
 version = "1.2.2"

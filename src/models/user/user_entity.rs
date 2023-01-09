@@ -1,10 +1,11 @@
 // Tavern Imports
-use tavern_common::data_structures::model::Model;
+use arctic_fox::arctic_fox_data_structures::cub::Cub;
 
 // 3rd party stuff
 use uuid::Uuid;
+use serde::Serialize;
 
-#[derive(Model, Serialize, Clone)]
+#[derive(Serialize, Clone)]
 pub struct UserModel {
     pub user_id: String,
     pub user_bio: String,
@@ -13,13 +14,22 @@ pub struct UserModel {
     // pub user_plots: Vec<Plot>
 }
 
-impl UserModel {
-    pub fn new(id: Option<String>) -> Self {
+impl Default for UserModel {
+    fn default() -> Self {
+        Self {
+            user_id: Uuid::new_v4().to_string(),
+            username: "Defaulto".to_string(),
+            user_bio: "Add in a bio to help people get to know you!".to_string(),
+        }
+    }
+}
+
+impl Model for UserModel {
+    fn new(id: Option<String>) -> Self {
         match id {
             Some(i) => Self {
                 user_id: i,
-                username: "Default Username".to_string(),
-                user_bio: "Add in a bio to help people get to know you!".to_string(),
+                ..Self::default()
             },
             None => Self {
                 user_id: Uuid::new_v4().to_string(),
@@ -29,12 +39,15 @@ impl UserModel {
         }
     }
 
-    pub fn size(&self) -> u64 {
+    fn size(&self) -> u64 {
         let mut size: u64 = 0;
         size = (self.user_id.len() + self.user_bio.len() + self.username.len()) as u64;
         return size;
     }
 
+}
+
+impl UserModel {
     pub fn create_with_id_username(
         id: String, 
         username: String
@@ -46,3 +59,4 @@ impl UserModel {
         }
     }
 }
+
